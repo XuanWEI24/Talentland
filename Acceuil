@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+​
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+​
+    <title>Maquette Talents Land</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+        <nav class="navbar navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">Talents Land</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+              
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Accueil <span class="sr-only">(lien courant)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Besoins</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Talents</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Plus
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Cours et Forum</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Projet créatif</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Vie ma vie</a>
+                </div>
+              </li>
+            </ul>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Login
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Mon espace</a>
+                <a class="dropdown-item" href="#">Mes demandes</a>
+                <a class="dropdown-item" href="#">Mes offres</a>
+                <a class="dropdown-item" href="#">Déconnecter</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+<!--------------------------------------------------------------------------------------------------------------------------------------------->
+        <div class="jumbotron">
+          <div class="container">
+            <h1 class="display-4">Bienvenue chez Talents Land !</h1>
+            <p class="lead">Talents Land est une plateforme qui permet de partager les compétences entre collaborateurs.</p>
+            <hr class="my-4">
+            <p>Partageons nos talents</p>
+            <p class="lead">
+              <button type="button" class="btn btn-outline-dark">En savoir plus</button>
+            </p>
+          </div>
+        </div>
+<!--------------------------------------------------------------------------------------------------------------------------------------------->
+          <div class="container" id="besoins">
+            <div class="flex-parent d-flex flex-wrap justify-between-around mt-3">
+            <h1 id="titre1"><a href="#" class="badge badge-light">Besoins</a></h1>
+              <form class="form-inline my-2 my-lg-0" class="recherche">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button type="button" class="btn btn-outline-dark">Recherche</button>
+              </form>
+            </div>
+
+            <div class="flex-parent d-flex flex-wrap justify-content-around mt-3">
+              <div class="card" style="width: 12rem;">
+                <img src="https://i.ytimg.com/vi/T66AYZ-UXeQ/maxresdefault.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Pro : Transformer PDF en Word</h5>
+                  <p class="card-text">Date : 13/03/2020</p>
+                  <a href="Besoin1.html" class="btn btn-outline-dark">Voir la demande</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="https://www.mangervivant.fr/wp-content/uploads/2015/05/Course-%C3%A0-pieds-500x284.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Perso : Conseil course à pied</h5>
+                  <p class="card-text">Date : 12/03/2020</p>
+                  <a href="" class="btn btn-outline-dark">Voir la demande</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="https://www.notretemps.com/cache/com_zoo_images/4d/vegetaux1_732266f4233b4cd4d7204b5605fed70a.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Perso : Conseil nutrition</h5>
+                  <p class="card-text">Date : 10/03/2020</p>
+                  <a href="" class="btn btn-outline-dark">Voir la demande</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="http://www.microsoft.com/fr-fr/microsoft-365/blog/wp-content/uploads/sites/34/2019/02/Excel-with-Microsoft-Excel-in-Office-365-1b-1.png" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Pro : Expert Excel</h5>
+                  <p class="card-text">Date : 10/03/2020</p>
+                  <a href="" class="btn btn-outline-dark">Voir la demande</a>
+                </div>
+              </div>
+            </div>
+
+            <nav aria-label="Page navigation example" class="page">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Précédent</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Suivant</a>
+                </li>
+              </ul>
+            </nav>
+
+          </div>
+<!--------------------------------------------------------------------------------------------------------------------------------------------->
+          <div class="container" id="talents">
+            <div class="flex-parent d-flex flex-wrap justify-between-around mt-3">
+            <h1 id="titre2"><a href="#" class="badge badge-light">Talents</a></h1>
+              <form class="form-inline my-2 my-lg-0" class="recherche">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button type="button" class="btn btn-outline-dark">Recherche</button>
+              </form>
+            </div>
+
+            <div class="flex-parent d-flex flex-wrap justify-content-around mt-3">
+              <div class="card" style="width: 12rem;">
+                <img src="https://i.ytimg.com/vi/y_qU6Dl7yeQ/maxresdefault.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Pro : Animation réunion créative</h5>
+                  <p class="card-text">Description</p>
+                  <a href="Besoin1.html" class="btn btn-outline-dark">Voir l'offre</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="https://easyhealthymeal.com/wp-content/uploads/2019/10/image.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Perso : Cuisine</h5>
+                  <p class="card-text">Description</p>
+                  <a href="" class="btn btn-outline-dark">Voir l'offre</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="https://www.dynamique-mag.com/wp-content/uploads/300c67606fd8a6b98c94052fff81f0cb-780x405.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Pro : Pitcher</h5>
+                  <p class="card-text">Description</p>
+                  <a href="" class="btn btn-outline-dark">Voir l'offre</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="http://www.microsoft.com/fr-fr/microsoft-365/blog/wp-content/uploads/sites/34/2019/02/Excel-with-Microsoft-Excel-in-Office-365-1b-1.png" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Pro : Excel TCD</h5>
+                  <p class="card-text">Description</p>
+                  <a href="" class="btn btn-outline-dark">Voir l'offre</a>
+                </div>
+              </div>
+            </div>
+
+            <nav aria-label="Page navigation example" class="page">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Précédent</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Suivant</a>
+                </li>
+              </ul>
+            </nav>
+
+          </div>
+<!--------------------------------------------------------------------------------------------------------------------------------------------->
+          <div class="container" id="cours">
+            <div class="flex-parent d-flex flex-wrap justify-between-around mt-3">
+            <h1 id="titre3"><a href="#" class="badge badge-light">Cours et Forum</a></h1>
+              <form class="form-inline my-2 my-lg-0" class="recherche">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button type="button" class="btn btn-outline-dark">Recherche</button>
+              </form>
+            </div>
+
+            <div class="flex-parent d-flex flex-wrap justify-content-around mt-3">
+              <div class="card" style="width: 12rem;">
+                <img src="https://www.lecoindesentrepreneurs.fr/wp-content/uploads/2015/03/Logiciel-pour-la-gestion-de-projet.png" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Forum : AI et emploi</h5>
+                  <p class="card-text">Description</p>
+                  <a href="" class="btn btn-outline-dark">Je participe</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="https://easyhealthymeal.com/wp-content/uploads/2019/10/image.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Cours : Big data and marketing</h5>
+                  <p class="card-text">Description</p>
+                  <a href="" class="btn btn-outline-dark">Je participe</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="https://www.dynamique-mag.com/wp-content/uploads/300c67606fd8a6b98c94052fff81f0cb-780x405.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Cours : Finance d'entreprise</h5>
+                  <p class="card-text">Description</p>
+                  <a href="" class="btn btn-outline-dark">Je participe</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="http://www.microsoft.com/fr-fr/microsoft-365/blog/wp-content/uploads/sites/34/2019/02/Excel-with-Microsoft-Excel-in-Office-365-1b-1.png" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text">Cours : Communication client</p>
+                  <a href="" class="btn btn-outline-dark">Je participe</a>
+                </div>
+              </div>
+            </div>
+
+            <nav aria-label="Page navigation example" class="page">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Précédent</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Suivant</a>
+                </li>
+              </ul>
+            </nav>
+
+          </div>
+<!--------------------------------------------------------------------------------------------------------------------------------------------->
+          <div class="container" id="projets">
+            <div class="flex-parent d-flex flex-wrap justify-between-around mt-3">
+            <h1 id="titre4"><a href="#" class="badge badge-light">Projet créatif</a></h1>
+              <form class="form-inline my-2 my-lg-0" class="recherche">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button type="button" class="btn btn-outline-dark">Recherche</button>
+              </form>
+            </div>
+
+            <div class="flex-parent d-flex flex-wrap justify-content-around mt-3">
+              <div class="card" style="width: 12rem;">
+                <img src="https://idefle.org/wp-content/uploads/2016/04/Fotolia_84653236_S.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Projet 1</h5>
+                  <p class="card-text">Description</p>
+                  <a href="" class="btn btn-outline-dark" style="margin-bottom: 0.5em;">J'aime</a>
+                  <a href="" class="btn btn-outline-dark">Je participe</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="https://www.redsen-consulting.com/wp-content/uploads/2016/04/m%C3%A9thodologie-mareva-redsen-consulting.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Projet 2</h5>
+                  <p class="card-text">Description</p>
+                  <a href="" class="btn btn-outline-dark" style="margin-bottom: 0.5em;">J'aime</a>
+                  <a href="" class="btn btn-outline-dark">Je participe</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="https://www.petite-entreprise.net/images-donnees/fiches/articles/images/champ___8/creation8@w_750.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Projet 3</h5>
+                  <p class="card-text">Description</p>
+                  <a href="" class="btn btn-outline-dark" style="margin-bottom: 0.5em;">J'aime</a>
+                  <a href="" class="btn btn-outline-dark">Je participe</a>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem;">
+                <img src="https://idefle.org/wp-content/uploads/2016/04/Fotolia_84653236_S.jpg" class="card-img-top" alt="...">
+                <div class="card-body card text-center">
+                  <h5 class="card-title">Projet 4</h5>
+                  <p class="card-text">Description</p>
+                  <a href="" class="btn btn-outline-dark" style="margin-bottom: 0.5em;">J'aime</a>
+                  <a href="" class="btn btn-outline-dark">Je participe</a>
+                </div>
+              </div>
+            </div>
+
+            <nav aria-label="Page navigation example" class="page">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Précédent</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Suivant</a>
+                </li>
+              </ul>
+            </nav>
+
+            </div>
+
+          <footer>
+            <p id="copyright"><em><small>copyright &#9400; Talents Land, CPAM Haute-Garonne, 2020. All rights reserved.</small></em></p>
+          </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
