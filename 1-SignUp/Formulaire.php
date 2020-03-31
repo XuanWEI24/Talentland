@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 ​	<link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Login</title>
+    <title>S'inscrire</title>
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -32,7 +32,7 @@
   </head>
   <body>
         <nav class="navbar navbar-dark bg-dark">
-          <a class="navbar-brand" href="Accueil.html"> Quai des savoir-faire </a>
+          <a class="navbar-brand" href="Accueil.html"> Talents Land </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -40,7 +40,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Accueil <span class="sr-only">(lien courant)</span></a>
+                <a class="nav-link" href="#">Accueil <span class="sr-only">(lien courant)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Besoins</a>
@@ -57,7 +57,7 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">Projet associatif</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Vie ma vie</a>
+                  <a class="dropdown-item" href="#">XXX</a>
                 </div>
               </li>
             </ul>
@@ -67,7 +67,7 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Mon espace</a>
-                <a class="dropdown-item" href="Creer1Besoin.html">Mes demandes</a>
+                <a class="dropdown-item" href="#">Mes demandes</a>
                 <a class="dropdown-item" href="#">Mes offres</a>
                 <a class="dropdown-item" href="#">Déconnecter</a>
               </div>
@@ -78,25 +78,59 @@
 		<!--------------------------------------------------------------------------------------------------------------------------------------------->
         <div class="jumbotron">
           <div class="container">
-			<form class="form-signin">
-	
-			  <center><h1 class="h3 mb-3 font-weight-normal">Login</h1><center>
-			  <label for="inputEmail" class="sr-only" >Email address</label>
-			  <center><input type="email" id="inputEmail" class="form-control" placeholder="Votre adresse mail" required autofocus style="width:40%"></center>
-			  <label for="inputPassword" class="sr-only">Password</label>
-			  <center><input type="password" id="inputPassword" class="form-control" placeholder="votre mot de passe" required style="width:40%"></center>
-				<div class="checkbox mb-3">
-					<label>
-					  <input type="checkbox" value="remember-me"> Remember me
-					  <p> <A href="Creer1Compte.html"> S'inscrire <A> </p>
-					</label>
+			
+			<h1> CREER UN COMPTE </h1>
+			
+                        <form method = 'POST' action="AjouterUtilisateurs.php">
+			  <div class="form-row">
+				<div class="form-group col-md-6">
+				  <label for="inputEmail4">Nom</label>
+				  <input type="text" class="form-control" name="nom" id="inputEmail4" maxlength="40" required>
 				</div>
-			  <button class="btn btn-lg btn-primary btn-block" type="submit" style="width:40%">Se connecter</button>
-			</form>
+				<div class="form-group col-md-6">
+				  <label for="inputPassword4" >Prénom</label>
+				  <input type="text" class="form-control" name="prenom" id="inputPassword4" maxlength="25" required>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label for="inputAddress">Email (Pro/Perso)</label>
+				<input type="text" class="form-control" name="email" id="inputAddress" placeholder="@gmail.com" maxlength="255" required>
+			  </div>
+			  <div class="form-group">
+				<div class="form-check">
+				  <input class="form-check-input" type="checkbox" id="gridCheck" checked>
+				  <label class="form-check-label" for="gridCheck">
+					Je m'engage à respecter la charte.
+				  </label>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<div class="form-check">
+				  <input class="form-check-input" type="checkbox" name="anonyme"id="gridCheck" >
+				  <label class="form-check-label" for="gridCheck">
+					Apparaître anonymement.
+				  </label>
+				</div>
+			  </div>
+			  <div class="form-row">
+				<div class="form-group col-md-6">
+				  <label for="inputPassword1">Mot de Passe</label>
+				  <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" maxlength="40" required>
+				</div>                       
+				<div class="form-group col-md-6">
+				  <label for="inputPassword4">Confirmation de Mot de Passe </label>
+				  <input type="password" class="form-control" name="password" id="exampleInputPassword1"  placeholder="Password Confirmation" maxlength="40" required>
+				</div>
+			  </div>
+			  <div class="form-group">
+			  <button type="submit" class="btn btn-primary">S'inscrire</button>
+			  </div>
+            </form>
+
           </div>
         </div>
           <footer>
-            <p id="copyright"><em><small>copyright &#9400; Quai des savoir-faire, CPAM Haute-Garonne, 2020. All rights reserved.</small></em></p>
+            <p id="copyright"><em><small>copyright &#9400; Talents Land, CPAM Haute-Garonne, 2020. All rights reserved.</small></em></p>
           </footer>
 
     <!-- Optional JavaScript -->
