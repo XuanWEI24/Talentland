@@ -20,7 +20,6 @@ CREATE TABLE `Besoins` (
   `TypeB` enum('Pro','Perso','Pro et Perso'),
   `CodeC` int(10) NOT NULL,
   PRIMARY KEY (`CodeB`),
-  CONSTRAINT `codeb_not_null` check ((`CodeB`>0)), 
   CONSTRAINT `date_besoin` check ((`DateButoireB`>`DatePublicationB`))
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
@@ -49,8 +48,7 @@ CREATE TABLE `Talents` (
   `DatePublicationT` date,
   `TypeT` enum('Pro','Perso','Pro et Perso'),
   `CodeC` int(10) NOT NULL,
-  PRIMARY KEY (`CodeT`),
-  CONSTRAINT `codet_not_null` check ((`CodeT`>0))
+  PRIMARY KEY (`CodeT`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
@@ -76,8 +74,7 @@ CREATE TABLE `Categories` (
   `NomC` text(150) NOT NULL,
   `DescriptionC` text(500) NULL,
   `PhotoC` LONGBLOB NULL,
-  PRIMARY KEY (`CodeC`),
-  CONSTRAINT `codet_not_null` check ((`CodeC`>0))
+  PRIMARY KEY (`CodeC`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 --
 -- Dumping data for table `Catégories`
@@ -110,8 +107,7 @@ CREATE TABLE `Utilisateurs` (
   `Email` text(150) NOT NULL,
   `MotDePasse` text(150) NOT NULL,
   `Anonyme` Boolean,
-  PRIMARY KEY (`CodeU`),
-  CONSTRAINT `codet_not_null` check ((`CodeU`>0))
+  PRIMARY KEY (`CodeU`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 --
 -- Dumping data for table `Utilisateurs`
@@ -133,9 +129,7 @@ DROP TABLE IF EXISTS `Saisir`;
 CREATE TABLE `Saisir` (
   `CodeU` int(10) NOT NULL,
   `CodeB` int(10) NOT NULL,
-  PRIMARY KEY (`CodeU`,`CodeB`),
-  CONSTRAINT `codet_not_null` check ((`CodeU`>0)), 
-  CONSTRAINT `codet_not_null` check ((`CodeB`>0))
+  PRIMARY KEY (`CodeU`,`CodeB`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Dumping data for table `Saisir`
@@ -158,9 +152,7 @@ DROP TABLE IF EXISTS `Proposer`;
 CREATE TABLE `Proposer` (
   `CodeU` int(10) NOT NULL,
   `CodeT` int(10) NOT NULL, 
-  PRIMARY KEY (`CodeU`,`CodeT`),
-  CONSTRAINT `codet_not_null` check ((`CodeU`>0)), 
-  CONSTRAINT `codet_not_null` check ((`CodeT`>0))
+  PRIMARY KEY (`CodeU`,`CodeT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Dumping data for table `Proposer`
@@ -183,9 +175,7 @@ DROP TABLE IF EXISTS `Abonner`;
 CREATE TABLE `Abonner` (
   `CodeU` int(10) NOT NULL,
   `CodeC` int(10) NOT NULL, 
-  PRIMARY KEY (`CodeU`,`CodeC`),
-  CONSTRAINT `codet_not_null` check ((`CodeU`>0)), 
-  CONSTRAINT `codet_not_null` check ((`CodeC`>0))
+  PRIMARY KEY (`CodeU`,`CodeC`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Dumping data for table `Abonner`
@@ -227,3 +217,4 @@ ALTER TABLE `Abonner` ADD FOREIGN KEY (`CodeC`) REFERENCES `Categories`(`CodeC`)
 -- ----------------------------------------------------------------------------------------------
 -- fin de script
 -- ----------------------------------------------------------------------------------------------
+
