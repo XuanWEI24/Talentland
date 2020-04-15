@@ -20,7 +20,7 @@ CREATE TABLE `Besoins` (
   `TypeB` enum('Pro','Perso','Pro et Perso'),
   `CodeC` int(10) NOT NULL,
   PRIMARY KEY (`CodeB`),
-  CONSTRAINT `codeb_not_null` check ((`CODEACTIVITE`>0)), 
+  CONSTRAINT `codeb_not_null` check ((`CodeB`>0)), 
   CONSTRAINT `date_besoin` check ((`DateButoireB`>`DatePublicationB`))
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
