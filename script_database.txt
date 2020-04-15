@@ -23,6 +23,12 @@ CREATE TABLE `Besoins` (
   CONSTRAINT `date_besoin` check ((`DateButoireB`>`DatePublicationB`))
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
+ALTER TABLE `Besoins`
+MODIFY `DatePublicationB` text(50) ;
+
+ALTER TABLE `Besoins`
+MODIFY `TypeB` text(50) ;
+
 --
 -- Dumping data for table `Besoins`
 --
