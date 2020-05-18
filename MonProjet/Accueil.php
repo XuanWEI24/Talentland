@@ -11,6 +11,10 @@
     <title>Quai des savoir-faire</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
   </head>
   <body>
@@ -76,16 +80,31 @@
         </div>
 <!--------------------------------------------------------------------------------------------------------------------------------------------->
           <div class="container" id="besoins">
+          
+              <script>                          /* Recherche par mot clé, comment on cherche la carte totale ? */
+                $(document).ready(function(){
+                  $("#MotsCles").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#Cartes *").filter(function() {
+                      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                  });
+                });
+              </script>      
+              
             <div class="flex-parent d-flex justify-content-md-between bd-highlight mb-2">
               <h1 id="titre1"><a href="Besoin.php" class="badge badge-light">Besoins</a></h1>
+              <input id="MotsCles" type="text" placeholder="Search..">
              <!-- <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Expert PPT ..." aria-label="Search">
                     <button type="button" class="btn btn-outline-dark">Recherche</button>
               </form> -->
               <a href="Creer1Besoin.php"><button type="button" class="btn btn-light">Je veux créer un nouveau besoin</button></a>
             </div>
-
-            <div class="flex-parent d-flex flex-wrap justify-content-around mt-3">
+              
+              
+            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <div id="Cartes" class="flex-parent d-flex flex-wrap justify-content-around mt-3">     
             <?php
             require_once('Fonctions.php');
 
@@ -107,13 +126,14 @@
             }                
             ?>
             </div>
+            </table>
               
             <nav aria-label="Page navigation example" class="page">
               <ul class="pagination justify-content-center">
                 <li class="page-item disabled">
                   <a class="page-link" href="#" tabindex="-1">Précédent</a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
@@ -121,6 +141,13 @@
                 </li>
               </ul>
             </nav>
+              
+            <script>/* Pagination */
+                $(document).ready(function () {
+                $('#dtBasicExample').DataTable();
+                $('.page').addClass('bs-select');
+              });
+            </script>      
           </div>
 <!--------------------------------------------------------------------------------------------------------------------------------------------->
           <div class="container" id="talents">
@@ -160,7 +187,7 @@
                 <li class="page-item disabled">
                   <a class="page-link" href="#" tabindex="-1">Précédent</a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
