@@ -79,26 +79,14 @@
           </div>
         </div>
 <!--------------------------------------------------------------------------------------------------------------------------------------------->
-          <div class="container" id="besoins">
-          
-              <script>                          /* Recherche par mot clé, comment on cherche la carte totale ? */
-                $(document).ready(function(){
-                  $("#MotsCles").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $("#Cartes *").filter(function() {
-                      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
-                  });
-                });
-              </script>      
-              
+          <div class="container" id="besoins">              
             <div class="flex-parent d-flex justify-content-md-between bd-highlight mb-2">
               <h1 id="titre1"><a href="Besoin.php" class="badge badge-light">Besoins</a></h1>
               <input id="MotsCles" type="text" placeholder="Search..">
-             <!-- <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Expert PPT ..." aria-label="Search">
+              <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search"  name="mot" placeholder="Expert PPT ..." aria-label="Search">
                     <button type="button" class="btn btn-outline-dark">Recherche</button>
-              </form> -->
+              </form> 
               <a href="Creer1Besoin.php"><button type="button" class="btn btn-light">Je veux créer un nouveau besoin</button></a>
             </div>
               
@@ -106,24 +94,30 @@
             <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
             <div id="Cartes" class="flex-parent d-flex flex-wrap justify-content-around mt-3">     
             <?php
-            require_once('Fonctions.php');
+            		require_once('Fonctions.php');
+                        $query = "select b.TitreB, c.PhotoC, b.DateButoireB from besoins b, categories c where b.CodeC = c.CodeC order by CodeB DESC";
 
-            $query = "select b.TitreB, c.PhotoC, b.DateButoireB from besoins b, categories c where b.CodeC = c.CodeC order by CodeB DESC limit 5";
-            $result = mysqli_query ($session, $query);
+                        if(isset($_GET['mot']) AND !empty($_GET['mot'])) {     /*Recherche par mot clé*/
+                            $mot = htmlspecialchars($_GET['mot']);
+                            $query = "select b.TitreB, c.PhotoC, b.DateButoireB from besoins b, categories c where b.CodeC = c.CodeC and b.TitreB LIKE '%$mot%' order by b.CodeB DESC";
+                        }
 
-            if ($result == false) {
-                die("ereur requête : ". mysqli_error($session) );
-            }
-            while ($ligne = mysqli_fetch_array($result)) {                      /* Afficher les 5 besoins les plus récents */
-                echo ('<div class="card" style="width: 12rem;">');
-                echo ('<img src="'.$ligne["PhotoC"].'" class="card-img-top" alt="...">');   
-                echo ('<div class="card-body card text-center">');
-                echo ('<h5 class="card-title">'.$ligne["TitreB"].'</h5>');
-                echo ('<p class="card-text">Délais souhaité: '.$ligne["DateButoireB"].'</p>');
-                echo ('<a href="BesoinX.php" class="btn btn-outline-dark">Voir la demande</a>'); 
-                echo ('</div>');  
-                echo ('</div>');               
-            }                
+                        $result = mysqli_query ($session, $query);
+
+                        if (mysqli_num_rows($result)>0) {
+                            while ($ligne = mysqli_fetch_array($result)) {                      /* Afficher tous les besoins par l'ordre chronologique en format carte */
+                            echo ('<div class="card" style="width: 12rem;">');
+                            echo ('<img src="'.$ligne["PhotoC"].'" class="card-img-top" alt="...">');   
+                            echo ('<div class="card-body card text-center">');
+                            echo ('<h5 class="card-title">'.$ligne["TitreB"].'</h5>');
+                            echo ('<p class="card-text">Délais souhaité: '.$ligne["DateButoireB"].'</p>');
+                            echo ('<a href="BesoinX.php" class="btn btn-outline-dark">Voir la demande</a>'); 
+                            echo ('</div>');  
+                            echo ('</div>');         
+                            }
+                        } else {
+                          echo('<h5> Aucun résultat pour : '.$mot.'</h5>');
+                        } 
             ?>
             </div>
             </table>
@@ -141,44 +135,45 @@
                 </li>
               </ul>
             </nav>
-              
-            <script>/* Pagination */
-                $(document).ready(function () {
-                $('#dtBasicExample').DataTable();
-                $('.page').addClass('bs-select');
-              });
-            </script>      
+            
           </div>
 <!--------------------------------------------------------------------------------------------------------------------------------------------->
           <div class="container" id="talents">
             <div class="flex-parent d-flex justify-content-md-between bd-highlight mb-2">
                 <h1 id="titre2"><a href="Talent.php" class="badge badge-light">Talents</a></h1>
-            <!--  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Guitare ..." aria-label="Search">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" name="mot" placeholder="Guitare ..." aria-label="Search">
                     <button type="button" class="btn btn-outline-dark">Recherche</button>
-              </form> -->
+                </form>
             <a href="Creer1Talent.php"><button type="button" class="btn btn-light">Je veux ajouter un nouveau talent</button></a>
             </div>
 
             <div class="flex-parent d-flex flex-wrap justify-content-around mt-3">
             <?php
-            require_once('Fonctions.php');
+            		require_once('Fonctions.php');
+                        $query = "select t.TitreT, c.PhotoC from talents t, categories c where t.CodeC = c.CodeC order by t.CodeT DESC";
 
-            $query = "select t.TitreT, c.PhotoC from talents t, categories c where t.CodeC = c.CodeC order by CodeT DESC limit 5";
-            $result = mysqli_query ($session, $query);
+                        if(isset($_GET['mot']) AND !empty($_GET['mot'])) {     /*Recherche par mot clé*/
+                            $mot = htmlspecialchars($_GET['mot']);
+                            $query = "select t.TitreT, c.PhotoC from talents t, categories c where t.CodeC = c.CodeC and t.TitreT LIKE '%$mot%' order by t.CodeT DESC";
+                        }
 
-            if ($result == false) {
-                die("ereur requête : ". mysqli_error($session) );
-            }
-            while ($ligne = mysqli_fetch_array($result)) {                        /* Afficher les 5 talents les plus récents */
-                echo ('<div class="card" style="width: 12rem;">');
-                echo ('<img src="'.$ligne["PhotoC"].'" class="card-img-top" alt="...">');   
-                echo ('<div class="card-body card text-center">');
-                echo ('<h5 class="card-title">'.$ligne["TitreT"].'</h5>');
-                echo ('<a href="TalentX.php" class="btn btn-outline-dark">Voir le détail</a>'); 
-                echo ('</div>');  
-                echo ('</div>');               
-            }                
+                        $result = mysqli_query ($session, $query);
+
+                        if (mysqli_num_rows($result)>0) {
+                            while ($ligne = mysqli_fetch_array($result)) {                      /* Afficher tous les besoins par l'ordre chronologique en format carte */
+                            echo ('<div class="card" style="width: 12rem;">');
+                            echo ('<img src="'.$ligne["PhotoC"].'" class="card-img-top" alt="...">');   
+                            echo ('<div class="card-body card text-center">');
+                            echo ('<h5 class="card-title">'.$ligne["TitreB"].'</h5>');
+                            echo ('<p class="card-text">Délais souhaité: '.$ligne["DateButoireB"].'</p>');
+                            echo ('<a href="BesoinX.php" class="btn btn-outline-dark">Voir la demande</a>'); 
+                            echo ('</div>');  
+                            echo ('</div>');         
+                            }
+                        } else {
+                          echo('<h5> Aucun résultat pour : '.$mot.'</h5>');
+                        }  
             ?>
             </div>             
 
