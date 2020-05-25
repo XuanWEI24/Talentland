@@ -76,7 +76,7 @@
             </div></a>
 		  
 	    <form class="form-inline my-2 my-lg-0">
-            	<input class="form-control mr-sm-2" type="search" placeholder="Guitare ..." aria-label="Search">
+            	<input class="form-control mr-sm-2" type="search" name="mot" placeholder="Guitare ..." aria-label="Search">
             	<button type="button" class="btn btn-outline-dark">Recherche</button>
             </form>  
             
@@ -97,11 +97,10 @@
                         echo ('<div class="card" style="width: 12rem;">');
                         echo ('<img src="'.$ligne["PhotoC"].'" class="card-img-top" alt="...">');   
                         echo ('<div class="card-body card text-center">');
-                        echo ('<h5 class="card-title">'.$ligne["TitreB"].'</h5>');
-                        echo ('<p class="card-text">Délais souhaité: '.$ligne["DateButoireB"].'</p>');
-                        echo ('<a href="BesoinX.php" class="btn btn-outline-dark">Voir la demande</a>'); 
-                        echo ('</div>'); 
-		        echo ('</div>');         
+                        echo ('<h5 class="card-title">'.$ligne["TitreT"].'</h5>');
+                        echo ('<a href="TalentX.php" class="btn btn-outline-dark">Voir le détail</a>'); 
+                        echo ('</div>');  
+                        echo ('</div>');             
                         }
                      } else {
                         echo('<h5> Aucun résultat pour : '.$mot.'</h5>');
