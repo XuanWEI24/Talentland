@@ -71,14 +71,13 @@
             </div>
             <hr>
             
-            <a href="TalentC.php"><div class="alert alert-light" role="alert">
-              Filtrer les talents par catégorie
-            </div></a>
-		  
-	    <form class="form-inline my-2 my-lg-0">
-            	<input class="form-control mr-sm-2" type="search" name="mot" placeholder="Guitare ..." aria-label="Search">
-            	<button type="button" class="btn btn-outline-dark">Recherche</button>
-            </form>  
+            <div class="flex-parent d-flex justify-content-md-between bd-highlight mb-2">
+              <a href="TalentC.php"><div class="alert alert-light" role="alert">Filtrer les talents par catégorie</div></a>
+              <form class="form-inline my-2 my-lg-0" class="recherche">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Entrez un mot clé" aria-label="Recherche">
+                    <button type="button" class="btn btn-outline-dark">Recherche</button>
+              </form>
+            </div> 
             
             <div class="flex-parent d-flex flex-wrap justify-content-around mt-3">
             <?php
@@ -90,10 +89,10 @@
                             $query = "select t.TitreT, c.PhotoC from talents t, categories c where t.CodeC = c.CodeC and t.TitreT LIKE '%$mot%' order by t.CodeT DESC";
                     }
 
-                    $result = mysqli_query ($session, $query);
+                    $result = mysqli_query ($session, $query);   /*Si le mot clé existe, il va exécute la deuxième requête, sinon la première*/
 
                     if (mysqli_num_rows($result)>0) {
-                        while ($ligne = mysqli_fetch_array($result)) {                      /* Afficher tous les besoins par l'ordre chronologique en format carte */
+                        while ($ligne = mysqli_fetch_array($result)) {                      /* Afficher tous les talents par l'ordre chronologique en format carte */
                         echo ('<div class="card" style="width: 12rem;">');
                         echo ('<img src="'.$ligne["PhotoC"].'" class="card-img-top" alt="...">');   
                         echo ('<div class="card-body card text-center">');

@@ -197,6 +197,60 @@ INSERT INTO `Abonner` VALUES (3,6);
 INSERT INTO `Abonner` VALUES (3,7);
 UNLOCK TABLES;
 
+-- ------------------------------------------------------------------------------------------------
+
+--
+-- Table structure for table `Projet`
+--
+
+DROP TABLE IF EXISTS `Projet`;
+
+CREATE TABLE `Projet` (
+  `CodeP` int(10) NOT NULL AUTO_INCREMENT,
+  `TitreP` text(150) NOT NULL,
+  `DescriptionP` text(500) NOT NULL,
+  `DateButoireP` date NOT NULL,
+  `DatePublicationP` date,
+  `TypeP` enum('Pro','Perso','Pro et Perso'),
+  `CodeC` int(10) NOT NULL,
+  PRIMARY KEY (`CodeP`),
+  CONSTRAINT `date_projet` check ((`DateButoireP`>`DatePublicationP`))
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Projet`
+--
+
+INSERT INTO `projet` (`CodeP`, `TitreP`, `DescriptionP`, `DateButoireP`, `DatePublicationP`, `TypeP`, `CodeC`) VALUES ('1', 'Perso : Aide d\'organisation de course longue distance', '2 personnes pour faire l\'inventaire', '2020-12-12', '2020-05-25', 'Perso', '1');
+INSERT INTO `projet` (`CodeP`, `TitreP`, `DescriptionP`, `DateButoireP`, `DatePublicationP`, `TypeP`, `CodeC`) VALUES ('2', 'Pro : Aide pour le projet Resto du coeur chemin du Raisin à Toulouse', "3 personnes pour faire l'inventaire de 9H à 12H", '2022-03-25', NOW(), 'Pro', 5);
+INSERT INTO `projet` (`CodeP`, `TitreP`, `DescriptionP`, `DateButoireP`, `DatePublicationP`, `TypeP`, `CodeC`) VALUES ('3', 'Perso : Volontairiat pour des personnes handicapées', '4 personnes durée 2 mois', '2022-03-25', NOW(), 'Perso', 5);
+INSERT INTO `projet` (`CodeP`, `TitreP`, `DescriptionP`, `DateButoireP`, `DatePublicationP`, `TypeP`, `CodeC`) VALUES ('4', "Pro : Aide pour l\'organisation de la conférence', 'Toulouse 2 journées','2022-03-25', NOW(), 'Pro', 5 );
+INSERT INTO `projet` (`CodeP`, `TitreP`, `DescriptionP`, `DateButoireP`, `DatePublicationP`, `TypeP`, `CodeC`) VALUES ('5', 'Perso : Apéro ', 'Vendredi soir à 20H\r\n', '2020-05-29', '2020-05-25', 'Perso', '9');
+
+-- --------------------------------------------------------------------------------------------
+--
+-- Table structure for table `ParticiperP`
+--
+
+DROP TABLE IF EXISTS `ParticiperP`;
+
+CREATE TABLE `ParticiperP` (
+  `CodeU` int(10) NOT NULL,
+  `CodeP` int(10) NOT NULL,
+  `RoleP` enum('créateur','participant') NOT NULL,
+  PRIMARY KEY (`CodeU`,`CodeP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+-- Dumping data for table `ParticiperP`
+--
+
+LOCK TABLES `ParticiperP` WRITE;
+INSERT INTO `ParticiperP` VALUES (1,1);
+INSERT INTO `ParticiperP` VALUES (3,3);
+INSERT INTO `ParticiperP` VALUES (2,2);
+INSERT INTO `ParticiperP` VALUES (2,4);
+UNLOCK TABLES;
+
 -- ----------------------------------------------------------------------------------------------
 -- Ajouter des clés étrangères
 -- ----------------------------------------------------------------------------------------------
@@ -213,6 +267,11 @@ ALTER TABLE `Proposer` ADD FOREIGN KEY (`CodeT`) REFERENCES `Talents`(`CodeT`);
 
 ALTER TABLE `Abonner` ADD FOREIGN KEY (`CodeU`) REFERENCES `Utilisateurs`(`CodeU`); 
 ALTER TABLE `Abonner` ADD FOREIGN KEY (`CodeC`) REFERENCES `Categories`(`CodeC`);
+-- -----------------------------------------------------------------------------
+ALTER TABLE `Projet` ADD FOREIGN KEY (`CodeC`) REFERENCES `Categories`(`CodeC`);
+
+ALTER TABLE `ParticiperP` ADD FOREIGN KEY (`CodeU`) REFERENCES `Utilisateurs`(`CodeU`);
+ALTER TABLE `ParticiperP` ADD FOREIGN KEY (`CodeP`) REFERENCES `Projet`(`CodeP`);
 
 -- ----------------------------------------------------------------------------------------------
 -- fin de script
