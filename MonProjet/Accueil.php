@@ -83,7 +83,7 @@
             <div class="flex-parent d-flex justify-content-md-between bd-highlight mb-2">
               <h1 id="titre1"><a href="Besoin.php" class="badge badge-light">Besoins</a></h1>
               <input id="MotsCles" type="text" placeholder="Search..">
-              <form class="form-inline my-2 my-lg-0">
+              <form method="GET" class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search"  name="motB" placeholder="Expert ..." aria-label="Search">
                     <button type="submit" type="button" class="btn btn-outline-dark">Recherche</button>
               </form> 
@@ -141,7 +141,7 @@
           <div class="container" id="talents">
             <div class="flex-parent d-flex justify-content-md-between bd-highlight mb-2">
                 <h1 id="titre2"><a href="Talent.php" class="badge badge-light">Talents</a></h1>
-                <form class="form-inline my-2 my-lg-0">
+                <form method="GET" class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" name="motT" placeholder="Guitare ..." aria-label="Search">
                     <button type="button" type="submit" class="btn btn-outline-dark">Recherche</button>
                 </form>
