@@ -82,7 +82,6 @@
           <div class="container" id="besoins">              
             <div class="flex-parent d-flex justify-content-md-between bd-highlight mb-2">
               <h1 id="titre1"><a href="Besoin.php" class="badge badge-light">Besoins</a></h1>
-              <input id="MotsCles" type="text" placeholder="Search..">
               <form method="GET" class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search"  name="motB" placeholder="Expert ..." aria-label="Search">
                     <button type="submit" class="btn btn-outline-dark">Recherche</button>
@@ -91,9 +90,8 @@
             </div>
               
               
-            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
             <div id="Cartes" class="flex-parent d-flex flex-wrap justify-content-around mt-3">     
-            <?php
+            	<?php
             		require_once('Fonctions.php');
                         $query = "select b.TitreB, c.PhotoC, b.DateButoireB from besoins b, categories c where b.CodeC = c.CodeC order by CodeB DESC Limit 5";
 
@@ -118,9 +116,9 @@
                         } else {
                           echo('<h5> Aucun résultat pour : '.$mot.'</h5>');
                         } 
-            ?>
+           	 ?>
             </div>
-            </table>
+            
               
             <nav aria-label="Page navigation example" class="page">
               <ul class="pagination justify-content-center">
@@ -149,7 +147,7 @@
             </div>
 
             <div class="flex-parent d-flex flex-wrap justify-content-around mt-3">
-            <?php
+            	<?php
             		require_once('Fonctions.php');
                         $query = "select t.TitreT, c.PhotoC from talents t, categories c where t.CodeC = c.CodeC order by t.CodeT DESC";
 
@@ -173,7 +171,7 @@
                         } else {
                           echo('<h5> Aucun résultat pour : '.$mot.'</h5>');
                         }  
-            ?>
+            	?>
             </div>             
 
             <nav aria-label="Page navigation example" class="page">
