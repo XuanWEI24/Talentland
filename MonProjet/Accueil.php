@@ -84,7 +84,7 @@
               <h1 id="titre1"><a href="Besoin.php" class="badge badge-light">Besoins</a></h1>
               <input id="MotsCles" type="text" placeholder="Search..">
               <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search"  name="mot" placeholder="Expert PPT ..." aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search"  name="motB" placeholder="Expert ..." aria-label="Search">
                     <button type="button" class="btn btn-outline-dark">Recherche</button>
               </form> 
               <a href="Creer1Besoin.php"><button type="button" class="btn btn-light">Je veux créer un nouveau besoin</button></a>
@@ -95,11 +95,11 @@
             <div id="Cartes" class="flex-parent d-flex flex-wrap justify-content-around mt-3">     
             <?php
             		require_once('Fonctions.php');
-                        $query = "select b.TitreB, c.PhotoC, b.DateButoireB from besoins b, categories c where b.CodeC = c.CodeC order by CodeB DESC";
+                        $query = "select b.TitreB, c.PhotoC, b.DateButoireB from besoins b, categories c where b.CodeC = c.CodeC order by CodeB DESC Limit 5";
 
-                        if(isset($_GET['mot']) AND !empty($_GET['mot'])) {     /*Recherche par mot clé*/
-                            $mot = htmlspecialchars($_GET['mot']);
-                            $query = "select b.TitreB, c.PhotoC, b.DateButoireB from besoins b, categories c where b.CodeC = c.CodeC and b.TitreB LIKE '%$mot%' order by b.CodeB DESC";
+                        if(isset($_GET['motB']) AND !empty($_GET['motB'])) {     /*Recherche par mot clé*/
+                            $mot = htmlspecialchars($_GET['motB']);
+                            $query = "select b.TitreB, c.PhotoC, b.DateButoireB from besoins b, categories c where b.CodeC = c.CodeC and b.TitreB LIKE '%$motB%' order by b.CodeB DESC";
                         }
 
                         $result = mysqli_query ($session, $query);
@@ -116,7 +116,7 @@
                             echo ('</div>');         
                             }
                         } else {
-                          echo('<h5> Aucun résultat pour : '.$mot.'</h5>');
+                          echo('<h5> Aucun résultat pour : '.$motB.'</h5>');
                         } 
             ?>
             </div>
@@ -142,7 +142,7 @@
             <div class="flex-parent d-flex justify-content-md-between bd-highlight mb-2">
                 <h1 id="titre2"><a href="Talent.php" class="badge badge-light">Talents</a></h1>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" name="mot" placeholder="Guitare ..." aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" name="motT" placeholder="Guitare ..." aria-label="Search">
                     <button type="button" class="btn btn-outline-dark">Recherche</button>
                 </form>
             <a href="Creer1Talent.php"><button type="button" class="btn btn-light">Je veux ajouter un nouveau talent</button></a>
@@ -153,9 +153,9 @@
             		require_once('Fonctions.php');
                         $query = "select t.TitreT, c.PhotoC from talents t, categories c where t.CodeC = c.CodeC order by t.CodeT DESC";
 
-                        if(isset($_GET['mot']) AND !empty($_GET['mot'])) {     /*Recherche par mot clé*/
-                            $mot = htmlspecialchars($_GET['mot']);
-                            $query = "select t.TitreT, c.PhotoC from talents t, categories c where t.CodeC = c.CodeC and t.TitreT LIKE '%$mot%' order by t.CodeT DESC";
+                        if(isset($_GET['motT']) AND !empty($_GET['motT'])) {     /*Recherche par mot clé*/
+                            $mot = htmlspecialchars($_GET['motT']);
+                            $query = "select t.TitreT, c.PhotoC from talents t, categories c where t.CodeC = c.CodeC and t.TitreT LIKE '%$motT%' order by t.CodeT DESC";
                         }
 
                         $result = mysqli_query ($session, $query);
@@ -165,14 +165,13 @@
                             echo ('<div class="card" style="width: 12rem;">');
                             echo ('<img src="'.$ligne["PhotoC"].'" class="card-img-top" alt="...">');   
                             echo ('<div class="card-body card text-center">');
-                            echo ('<h5 class="card-title">'.$ligne["TitreB"].'</h5>');
-                            echo ('<p class="card-text">Délais souhaité: '.$ligne["DateButoireB"].'</p>');
-                            echo ('<a href="BesoinX.php" class="btn btn-outline-dark">Voir la demande</a>'); 
+                            echo ('<h5 class="card-title">'.$ligne["TitreT"].'</h5>');
+                            echo ('<a href="TalentX.php" class="btn btn-outline-dark">Voir le détail</a>'); 
                             echo ('</div>');  
-                            echo ('</div>');         
+                            echo ('</div>');             
                             }
                         } else {
-                          echo('<h5> Aucun résultat pour : '.$mot.'</h5>');
+                          echo('<h5> Aucun résultat pour : '.$motT.'</h5>');
                         }  
             ?>
             </div>             
